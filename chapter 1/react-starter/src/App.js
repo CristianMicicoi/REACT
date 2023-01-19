@@ -1,23 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react"; //this statement tells me that if I want using react, I must import a installed package/library
+//Import Components
+import TweetList from "./components/TweetList";
+import CreateTweet from "./components/CreateTweet";
+import style from "./styles/App.module.css";
 
+// function App() {
+//   //Here is the place I can write normal JS
+//   // const name = "Dev Ed"; //If I wanna pass this variable into "tweet", for example, I use PROPS, so I go inside the component "tweet" on this page and I make the modification there(in my case, the modification is "author")
+//   // const message = "I must learn React today!";
+//   //Using State======================
+//   const [name, setName] = useState("Dev Ed");
+//   //Create our function
+//   const sayHelloHandler = (e) => {
+//     setName("Christian");
+//     console.log(name);
+//   };
+
+//   return (
+//     <div className="text">
+//       {/* <CreateTweet />
+//       <TweetList name={name} message={message} /> */}
+//       <h1>Hello {name}</h1>
+//       <button onClick={sayHelloHandler}>Click</button>
+//     </div>
+//   );
+// }
+
+//Also using STATE===============
 function App() {
+  //Here is the place I can write normal JS
+  //State
+  const [name, setName] = useState("Dev Ed");
+  const [textInput, setTextInput] = useState("");
+  const [tweets, setTweets] = useState([]);
+  const message = "Hello!";
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 className={style.title}>Twitter Light</h1>
+      <CreateTweet
+        textInput={textInput}
+        setTextInput={setTextInput}
+        tweets={tweets}
+        setTweets={setTweets}
+      />
+      <TweetList name={name} tweets={tweets} setTweets={setTweets} />
     </div>
   );
 }
