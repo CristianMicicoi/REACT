@@ -2,7 +2,7 @@ import React from "react";
 import Tweet from "./Tweet";
 
 const TweetList = ({ name, tweets, setTweets }) => {
-  //I can accest the PROPS modification with "author" from App.js and get it here with the parameter of function
+  //I can acces the PROPS modification with "author" from App.js and get it here with the parameter of function
   return (
     <div className="tweet-list">
       {/* <Tweet name={name} tweets={tweets} /> */}

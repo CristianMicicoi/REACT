@@ -1,8 +1,9 @@
-import React, { useState } from "react"; //this statement tells me that if I want using react, I must import a installed package/library
+import React, { useState, useEffect } from "react"; //this statement tells me that if I want using react, I must import a installed package/library
+//in 01.02.2023 am invatat despre "useEffect" in React
 //Import Components
 import TweetList from "./components/TweetList";
 import CreateTweet from "./components/CreateTweet";
-import style from "./styles/App.module.css";
+// import style from "./styles/App.module.css";
 
 // function App() {
 //   //Here is the place I can write normal JS
@@ -27,6 +28,27 @@ import style from "./styles/App.module.css";
 // }
 
 //Also using STATE===============
+// function App() {
+//   //Here is the place I can write normal JS
+//   //State
+//   const [name, setName] = useState("Dev Ed");
+//   const [textInput, setTextInput] = useState("");
+//   const [tweets, setTweets] = useState([]);
+//   const message = "Hello!";
+//   return (
+//     <div>
+//       {/* <h1 className={style.title}>Twitter Light</h1> */}
+//       <CreateTweet
+//         textInput={textInput}
+//         setTextInput={setTextInput}
+//         tweets={tweets}
+//         setTweets={setTweets}
+//       />
+//       <TweetList name={name} tweets={tweets} setTweets={setTweets} />
+//     </div>
+//   );
+// }
+
 function App() {
   //Here is the place I can write normal JS
   //State
@@ -34,9 +56,14 @@ function App() {
   const [textInput, setTextInput] = useState("");
   const [tweets, setTweets] = useState([]);
   const message = "Hello!";
+
+  //useEffect
+  useEffect(() => {
+    console.log("we run a function!!!");
+  }, [textInput]);
   return (
     <div>
-      <h1 className={style.title}>Twitter Light</h1>
+      {/* <h1 className={style.title}>Twitter Light</h1> */}
       <CreateTweet
         textInput={textInput}
         setTextInput={setTextInput}
